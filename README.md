@@ -159,3 +159,5 @@ Suppose that the input array is A[low..high]:
           i = j + 1
           
     return (low, high, maxSum)
+    
+### Time Complexity: O(n) 
