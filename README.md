@@ -4,7 +4,19 @@
 
 ## Description 
 
-Using the **divide-and-conquer method** to solve the problem
+Using the **divide-and-conquer method** to solve the problem:
+
+Suppose that the input array is A[low..high]:
+
+* Divide the input array into 2 subarrays of as equal size as posible (find midpoint)
+
+* The max contiguous subarray A[i..j] must lie in one of following place:
+  
+  * Entirely in the subarray A[low..mid], so that low <= i <= j <= mid
+  
+  * Entirely in the subarray A[mid+1..high], so that mid < i <= j <= high
+  
+  * Crossing the midpoint, so that low <= i <= mid < j <= high
 
 ## Pseudocode
 
