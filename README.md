@@ -24,7 +24,7 @@ Suppose that the input array is A[low..high]:
 
 * Take a subarray with the largest sum of three.
 
-## Pseudocode
+### Pseudocode
 
    **FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)**
     
@@ -89,6 +89,8 @@ Suppose that the input array is A[low..high]:
 ### Time Complexity: O(n*lgn) 
 
 ## Method 2: Brute force
+
+### Description
 
 ### Pseudocode
 
