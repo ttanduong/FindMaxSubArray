@@ -169,3 +169,41 @@ Loop for each element of the input array:
     return (low, high, maxSum)
     
 ### Time Complexity: O(n) 
+
+## Method 4: Mix Brute force and Divide-and-Conquer methods
+
+### Description
+
+CROSS_THRESHOLD gives the crossover point at which the recursive algorithm beats the brute-force algorithm.
+
+### Pseudocode
+
+   **MIX-FIND-MAX-SUBARRAY(A, low, high)**
+   
+    CONST CROSS_THRESHOLD = 37
+   
+    if (high - low) < CROSS_THRESHOLD
+    
+       return BRUTEFORCE-FIND-MAX-SUBARRAY(A, low, high)
+       
+    else
+       
+       mid = (low + high) / 2
+       
+       (leftLow, leftHigh, leftSum) = MIX-FIND-MAX-SUBARRAY(A, low, mid)
+    
+       (rightLow, rightHigh, rightSum) = MIX-FIND-MAX-SUBARRAY(A, mid + 1, high)
+
+       (crossLow, crossHigh, crossSum) = FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)
+
+       if leftSum >= rightSum AND leftSum >= crossSum
+
+          return (leftLow, leftHigh, leftSum)
+
+       elseif rightSum >= leftSum AND rightSum >= crossSum
+
+          return (rightLow, rightHigh, rightSum)
+
+       else
+
+          return (crossLow, crossHigh, crossSum)
