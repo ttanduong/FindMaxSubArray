@@ -8,7 +8,7 @@ Using the **divide-and-conquer method** to solve the problem
 
 ### Pseudocode
 
-    FIND-MAX-CROSSING-SUBARRAY(A, l, m, h)
+   **FIND-MAX-CROSSING-SUBARRAY(A, l, m, h)**
     
     leftSum = -INFINITY
     
@@ -42,7 +42,7 @@ Using the **divide-and-conquer method** to solve the problem
           
     return (leftIndex, rightIndex, leftSum + rightSum)
 
-    FIND-MAX-SUBARRAY(A, l, h)
+   **FIND-MAX-SUBARRAY(A, l, h)**
     
     if l = h 
     
