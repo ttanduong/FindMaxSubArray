@@ -8,7 +8,7 @@ Using the **divide-and-conquer method** to solve the problem:
 
 Suppose that the input array is A[low..high]:
 
-* Divide the input array into 2 subarrays of as equal size as posible (find midpoint)
+* Divide the input array into 2 subarrays of as equal size as posible (find midpoint).
 
 * The max contiguous subarray A[i..j] must lie in one of following place:
   
@@ -20,7 +20,7 @@ Suppose that the input array is A[low..high]:
 
 * So find the maximum subarrays of A[low..mid] and A[mid+1..high] recursively.
 
-* Find the maximum subarray that cross the midpoint
+* Find the maximum subarray that cross the midpoint.
 
 * Take a subarray with the largest sum of three.
 
