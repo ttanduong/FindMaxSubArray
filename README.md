@@ -2,9 +2,9 @@
 
 ### Find the maximum contiguous subarray of an input array
 
-## Description 
+## Method 1: Devide and conquer
 
-Using the **divide-and-conquer method** to solve the problem:
+### Description 
 
 Suppose that the input array is A[low..high]:
 
@@ -26,17 +26,17 @@ Suppose that the input array is A[low..high]:
 
 ## Pseudocode
 
-   **FIND-MAX-CROSSING-SUBARRAY(A, l, m, h)**
+   **FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)**
     
     leftSum = -INFINITY
     
     rightSum = -INFINITY
     
-    leftIndex = m
+    leftIndex = mid
     
     sum = 0
     
-    for i = m downto l
+    for i = mid downto l
     
        sum = sum + A[i]
        
@@ -48,7 +48,7 @@ Suppose that the input array is A[low..high]:
           
     sum = 0
     
-    for i = m + 1 to h
+    for i = mid + 1 to high
     
        sum = sum + A[i]
        
@@ -60,19 +60,19 @@ Suppose that the input array is A[low..high]:
           
     return (leftIndex, rightIndex, leftSum + rightSum)
 
-   **FIND-MAX-SUBARRAY(A, l, h)**
+   **FIND-MAX-SUBARRAY(A, low, high)**
     
-    if l = h 
+    if low = high 
     
-       return (l, h, A[l])
+       return (low, high, A[low])
     
-    m = (l + h) / 2
+    mid = (low + high) / 2
     
-    (leftLow, leftHigh, leftSum) = FIND-MAX-SUBARRAY(A, l, m)
+    (leftLow, leftHigh, leftSum) = FIND-MAX-SUBARRAY(A, low, mid)
     
-    (rightLow, rightHigh, rightSum) = FIND-MAX-SUBARRAY(A, m + 1, h)
+    (rightLow, rightHigh, rightSum) = FIND-MAX-SUBARRAY(A, mid + 1, high)
     
-    (crossLow, crossHigh, crossSum) = FIND-MAX-CROSSING-SUBARRAY(A, l, m, h)
+    (crossLow, crossHigh, crossSum) = FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)
     
     if leftSum >= rightSum AND leftSum >= crossSum
        
@@ -86,4 +86,36 @@ Suppose that the input array is A[low..high]:
        
        return (crossLow, crossHigh, crossSum)
        
-## Time Complexity: O(n*lgn) 
+### Time Complexity: O(n*lgn) 
+
+## Method 2: Brute force
+
+### Pseudocode
+
+   **BRUTEFORCE-FIND-MAX-SUBARRAY(A, low, high)**
+   
+    maxSum = -INFINITY
+    
+    lowIndex = 0
+    
+    highIndex = 0
+
+    for i = low to high
+    
+       sum = 0
+       
+       for j = i to high
+       
+          sum = sum + A[j]
+          
+          if sum > maxSum
+             
+             maxSum = sum
+             
+             lowIndex = i
+             
+             highIndex = j
+             
+    return (lowIndex, highIndex)
+    
+### Time Complexity: O(n^2)
