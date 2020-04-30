@@ -8,6 +8,7 @@ namespace FindMaximumSubarray
     {
         /* FindMaxSubArray(int[] A, int low, int high)
          * Description: Find the maximum contiguous subarray of A[low...high]
+         *              Method: Divide and conquer
          * Param1 (int[] A): Array which have some nagative integer elements
          * Param2 (int low): low index of A[]	
          * Param3 (int hight): high index of A[]
@@ -51,23 +52,28 @@ namespace FindMaximumSubarray
             int leftSum = int.MinValue;
             int rightSum = int.MinValue;
 
-            int leftIndex = mid;
-            int rightIndex = mid + 1;
-
+            
+            
+            int leftIndex = mid;      
+            int rightIndex = mid + 1; 
             int sum = 0;
-            for (int i = leftIndex; i >= 0; i--)
+
+            //Start from mid point and find the left part of the maximum subarray
+            for (int i = mid; i >= 0; i--)
             {
                 sum += A[i];
 
-                if (sum >= leftSum)
+                if (sum >= leftSum) 
                 {
                     leftSum = sum;
                     leftIndex = i;
                 }
             }
 
+
             sum = 0;
-            for (int i = rightIndex; i < A.Length; i++)
+            //Start from mid point + 1 and find the right part of the maximum subarray
+            for (int i = mid + 1; i <= high; i++)
             {
                 sum += A[i];
 
@@ -79,6 +85,40 @@ namespace FindMaximumSubarray
             }
 
             return new int[] { leftIndex, rightIndex, leftSum + rightSum };
+        }
+
+        /* BruteForceFindMaxSubArray(int[] A, int low, int high)
+         * Description: Find the maximum contiguous subarray of A[low...high]
+         *              Method: Brute Force
+         * Param1 (int[] A): Array which have some nagative integer elements
+         * Param2 (int low): low index of A[]	
+         * Param3 (int hight): high index of A[]
+         * Return (int[2]): {low index, high index} of the maximum contiguous subarray
+         */
+        public int[] BruteForceFindMaxSubArray(int[] A, int low, int high)
+        {
+            int maxSum = int.MinValue;
+            int lowIndex = 0;
+            int highIndex = 0;
+
+            for (int i = low; i <= high; i++)
+            {
+                int sum = 0;
+
+                for (int j = i; j <= high; j++)
+                {
+                    sum += A[j];
+
+                    if (sum > maxSum)
+                    {
+                        maxSum = sum;
+                        lowIndex = i;
+                        highIndex = j;
+                    }
+                }
+            }
+
+            return new int[] { lowIndex, highIndex, maxSum };
         }
     }
 }
