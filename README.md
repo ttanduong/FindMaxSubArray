@@ -60,7 +60,7 @@ Suppose that the input array is A[low..high]:
           
     return (leftIndex, rightIndex, leftSum + rightSum)
 
-   **FIND-MAX-SUBARRAY(A, low, high)**
+   **DIVIDECONQUER-FIND-MAX-SUBARRAY(A, low, high)**
     
     if low = high 
     
@@ -121,3 +121,41 @@ Suppose that the input array is A[low..high]:
     return (lowIndex, highIndex)
     
 ### Time Complexity: O(n^2)
+
+## Method 3: Linear
+
+### Description
+
+### Pseudocode
+
+   **LINEAR-FIND-MAX-SUBARRAY(A)**
+   
+    currentSum = 0
+    
+    low = 0
+    
+    high = 0
+    
+    maxSum = A[0]
+    
+    i = 1
+    
+    for j = 1 to A.Length
+    
+       currentSum = currentSum + A[j]
+       
+       if currentSum > maxSum
+       
+          maxSum = currentSum
+          
+          low = i
+          
+          high = j
+          
+       if currentSum < 0
+          
+          currentSum = 0
+          
+          i = j + 1
+          
+    return (low, high, maxSum)
