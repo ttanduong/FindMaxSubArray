@@ -126,6 +126,14 @@ Suppose that the input array is A[low..high]:
 
 ### Description
 
+Loop for each element of the input array:
+
+* Update the value of the current sum whenever encouter a new element.
+
+* If the current sum is bigger than the max sum, update the max subarray contains that new element.
+
+* If the current sum is negative, reset current sum and mark the next element as the start of a new possible max subarray.
+
 ### Pseudocode
 
    **LINEAR-FIND-MAX-SUBARRAY(A)**
