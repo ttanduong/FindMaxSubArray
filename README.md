@@ -18,6 +18,12 @@ Suppose that the input array is A[low..high]:
   
   * Crossing the midpoint, so that low <= i <= mid < j <= high
 
+* So find the maximum subarrays of A[low..mid] and A[mid+1..high] recursively.
+
+* Find the maximum subarray that cross the midpoint
+
+* Take a subarray with the largest sum of three.
+
 ## Pseudocode
 
    **FIND-MAX-CROSSING-SUBARRAY(A, l, m, h)**
