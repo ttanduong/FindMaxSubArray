@@ -2,11 +2,11 @@
 
 ### Find the maximum contiguous subarray of an input array
 
-### Description 
+## Description 
 
 Using the **divide-and-conquer method** to solve the problem
 
-### Pseudocode
+## Pseudocode
 
    **FIND-MAX-CROSSING-SUBARRAY(A, l, m, h)**
     
