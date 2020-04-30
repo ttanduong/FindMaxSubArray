@@ -86,4 +86,4 @@ Suppose that the input array is A[low..high]:
        
        return (crossLow, crossHigh, crossSum)
        
-## Time Complexity: O(nlgn) 
+## Time Complexity: O(n*lgn) 
